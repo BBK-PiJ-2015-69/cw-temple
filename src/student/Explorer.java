@@ -37,6 +37,13 @@ public class Explorer {
      */
     public void explore(ExplorationState state) {
         //TODO:
+
+        while(state.getDistanceToTarget() > 0) {
+            System.out.print( "distance: " + state.getDistanceToTarget() + "," );
+            //state.moveTo(next);
+        }
+
+
     }
 
     /**
