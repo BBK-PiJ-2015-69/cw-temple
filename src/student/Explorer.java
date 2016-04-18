@@ -110,6 +110,16 @@ public class Explorer {
                 List<Long> dijkstrasPath = matrix.getDijkstrasPath(currentLocation, gideonsMove);
                 long dijkstrasPathPlus;
 
+                //scan possible paths
+                for(int i=0; i <= (dijkstrasPath.size()-2); i++){
+                    //if possible path
+                    if(dijkstrasPath.get(i) != null){
+                        //attempt plus one from current location
+                        dijkstrasPathPlus = dijkstrasPath.get(i+1);
+                        //move Gideon to dijkstrasPath plus one
+                        state.moveTo(dijkstrasPathPlus);
+                    }
+                }
                 
             }
 
