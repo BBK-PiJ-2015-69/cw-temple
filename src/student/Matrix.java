@@ -83,6 +83,14 @@ public class Matrix{
     public Set<Long> getNeighbours(long currentLocation){
         
         Set<Long> neighboursData = (Set<Long>) this.unvisited.keySet();
+
+        for(long locationData : (Set<Long>) unvisited.keySet()){
+
+            if(currentLocation == locationData){
+                neighboursData = (Set<Long>) unvisited.get(currentLocation);
+            }
+
+        }
         
         return neighboursData;
 
