@@ -118,6 +118,10 @@ public class Explorer {
                         dijkstrasPathPlus = dijkstrasPath.get(i+1);
                         //move Gideon to dijkstrasPath plus one
                         state.moveTo(dijkstrasPathPlus);
+                        //update the matrix to note that Gideon visited this tile
+                        matrix.addVisit(currentLocation);
+                        //update current location to the new position of Gideon, e.g. dijkstrasPath.get(i+1)
+                        currentLocation = state.getCurrentLocation();
                     }
                 }
                 
