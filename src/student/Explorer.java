@@ -115,5 +115,8 @@ public class Explorer {
         //create a matrix to hold unvisited nodes
         Matrix matrix = new Matrix();
 
+        //get the Vertices
+        Collection<Node> vertices = state.getVertices(); 
+
     }
 }
