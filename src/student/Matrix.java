@@ -69,8 +69,18 @@ public class Matrix{
             }
 
         }
+
+        //store here nodes to evaluate
+        List<Long> evaluationNodes = new ArrayList();
+        //sort the avialable unvisited nodes
+        Collections.sort(availableNodes);
         
-        return availableNodes;
+        //scan available nodes and add to evaluationNodes, now sorted in order
+        for (MatrixNode available : availableNodes){
+            evaluationNodes.add(available.getNode());
+        }
+        
+        return evaluationNodes;
 
     }   
 
