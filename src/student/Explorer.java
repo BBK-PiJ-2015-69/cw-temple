@@ -117,6 +117,9 @@ public class Explorer {
 
         //get the Vertices
         Collection<Node> vertices = state.getVertices(); 
+        
+        //unvisitedEscapeNodes lists the unvisited nodes
+        Map unvisitedEscapeNodes = new HashMap(999);
 
     }
 }
