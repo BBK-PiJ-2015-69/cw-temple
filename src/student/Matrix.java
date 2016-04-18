@@ -4,6 +4,7 @@ import java.lang.IllegalArgumentException;
 
 public class Matrix{
 
+	private final int MATRIX_HASHES_INIT = 999;
     private Map unvisited;
     private Map visited;
     private Map targets;
@@ -11,8 +12,8 @@ public class Matrix{
 
     public Matrix(){
 
-        unvisited = new HashMap(999);
-        visited = new HashMap(999);
+        unvisited = new HashMap(MATRIX_HASHES_INIT);
+        visited = new HashMap(MATRIX_HASHES_INIT);
         targets = new HashMap(MATRIX_HASHES_INIT);
         edgeCosts = new HashMap(MATRIX_HASHES_INIT);
         //gold??
