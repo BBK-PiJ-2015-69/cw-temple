@@ -146,6 +146,24 @@ public class Matrix{
 
             }
 
+            if (position == (Long) gideonsMove){
+                
+                List<Long> dijkstrasWorkins = new ArrayList();
+                Long workings = gideonsMove;
+                
+                do{
+                    dijkstrasWorkings.add((Long)previous.get(workings));
+                    workings = (Long) previous.get(workings);
+                }while(previous.containsKey(workings));
+                
+                dijkstrasWorkings.add(workings);
+                
+                for(int i = dijkstrasWorkings.size()-1; i<=0; i--){
+                    dijkstrasPath.add(dijkstrasWorkings.get(i));
+                }
+
+            }
+
         }while(!edges.isEmpty());
 
         return dijkstrasPath;
