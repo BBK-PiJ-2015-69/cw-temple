@@ -56,9 +56,9 @@ public class Explorer {
                 and also add the distance */
             for(NodeStatus neighbouringNode : state.getNeighbours() ){
                 matrix.addEdge(currentLocation, neighbouringNode.getId());
-                Set<Long> neighboursList = matrix.getNeighbours(currentLocation);
                 matrix.addDistance(neighbouringNode.getId(), neighbouringNode.getDistanceToTarget());
             }
+                Set<Long> neighboursList = matrix.getNeighbours(currentLocation);
 
         //keep this looping until distance is zero, i.e. reach the Orb
         }while(state.getDistanceToTarget() != 0);
