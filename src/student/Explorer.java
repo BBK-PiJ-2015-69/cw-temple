@@ -55,6 +55,8 @@ public class Explorer {
             and also add the distance */
             for(NodeStatus neighbouringNode : state.getNeighbours() ){
                 matrix.addEdge(currentLocation, neighbouringNode.getId());
+                Set<Long> neighboursList = matrix.getNeighbours(currentLocation);
+                matrix.addDistance(neighbouringNode.getId(), neighbouringNode.getDistanceToTarget());
             }
 
     }
