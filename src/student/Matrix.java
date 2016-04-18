@@ -30,5 +30,12 @@ public class Matrix{
 	
 	}	
 
+    public void addDistance(long id, int targets){
+        
+        if(!targets.containsKey(id)){
+            targets.put(id, targets);
+        }
+
+    }
 
 }
