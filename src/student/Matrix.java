@@ -164,6 +164,21 @@ public class Matrix{
 
             }
 
+            Set<Long> neighbours = new HashSet();
+            neighbours = getNeighbours(position); 
+            edges.remove(position);
+
+            for (long n : neighbours){
+
+                int otherMove = (int) distance.get(position) + 1;
+                
+                if ((int) distance.get(n) > otherMove){
+                    distance.put(n, otherMove); 
+                    previous.put(n, position);
+                }
+
+            }
+
         }while(!edges.isEmpty());
 
         return dijkstrasPath;
