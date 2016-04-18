@@ -46,18 +46,17 @@ public class Explorer {
             //currentLocation is the current position of Osbourne figure, the starting point
             long currentLocation = state.getCurrentLocation();
 
-        //keep this looping until distance is zero, i.e. reach the Orb
-        }while(state.getDistanceToTarget() != 0);
-
-
-        /* we get the neighbouring nodes of the starting point, where Gideon currently stands
-            and add each one to the matrix as an egde
-            and also add the distance */
+            /* we get the neighbouring nodes of the starting point, where Gideon currently stands
+                and add each one to the matrix as an egde
+                and also add the distance */
             for(NodeStatus neighbouringNode : state.getNeighbours() ){
                 matrix.addEdge(currentLocation, neighbouringNode.getId());
                 Set<Long> neighboursList = matrix.getNeighbours(currentLocation);
                 matrix.addDistance(neighbouringNode.getId(), neighbouringNode.getDistanceToTarget());
             }
+
+        //keep this looping until distance is zero, i.e. reach the Orb
+        }while(state.getDistanceToTarget() != 0);
 
     }
 
