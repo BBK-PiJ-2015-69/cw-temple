@@ -44,12 +44,17 @@ public class Explorer {
         this Matrix call will create hashmaps for:
         unvisited, visited, distances, and edge costs */
         HashMap matrix = new HashMap();
+        
+        //add start node and distance to matrix ?
 
         //when the distance to target is not zero, i.e. we have not reached the orb
         do{
 
             //currentLocation is the current position of Osbourne figure, the starting point
             long currentLocation = state.getCurrentLocation();
+
+            //set evaluationNodes to clear
+            List<Long> evaluationNodes = null;
 
             /* we get the neighbouring nodes of the starting point, where Gideon currently stands
                 and add each one to the matrix as an egde
