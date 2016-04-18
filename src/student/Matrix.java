@@ -21,7 +21,27 @@ public class Matrix{
 
     }
 
-     public void addEdge(long alpha, long beta){
+    public void addVisit(long id){
+
+        int i = 1;
+        
+        if(visited.containsKey(id)){
+            i += (int) visited.get(id); 
+        } 
+        
+        visited.put(id, i);
+
+    }   
+
+    public void addDistance(long id, int targets){
+        
+        if(!targets.containsKey(id)){
+            targets.put(id, targets);
+        }
+
+    }
+
+    public void addEdge(long alpha, long beta){
         
         if(!unvisited.containsKey(alpha)){
             unvisited.put(alpha, new HashSet<Long>());
@@ -45,14 +65,6 @@ public class Matrix{
        
        addEdge(alpha, beta);
     
-    }
-
-    public void addDistance(long id, int targets){
-        
-        if(!targets.containsKey(id)){
-            targets.put(id, targets);
-        }
-
     }
 
     public void addGold(long position, int gold){
@@ -113,18 +125,6 @@ public class Matrix{
         return evaluationNodes;
 
     }
-
-    public void addVisit(long id){
-
-        int i = 1;
-        
-        if(visited.containsKey(id)){
-            i += (int) visited.get(id); 
-        } 
-        
-        visited.put(id, i);
-
-    }   
 
     public List<Long> getDijkstrasPath(long currentPosition, long gideonsMove){
 
