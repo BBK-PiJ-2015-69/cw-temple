@@ -134,5 +134,10 @@ public class Explorer {
 
         }
 
+        //set currentLocation to current state
+        long currentLocation = state.getCurrentNode().getId();
+        //get the exit from this dungeon
+        long dungeonExit = state.getExit().getId();
+
     }
 }
