@@ -41,18 +41,36 @@ public class Matrix{
  	public List<Long> getEvaluationNode(long id, boolean neighboursExist){
         
         //store here the nodes
-        Set<Long> evaluationNodes;
+        Set<Long> nodes;
 
         //if now neighbouring nodes
         if(!neighboursExist){
             //add all unvisited nodes
-            evalutionNodes = unvisited.keySet();
+            nodes = unvisited.keySet();
         }else{
             //add neighbouring nodes
-            evaluationNodes = getNeighbours(id);
+            nodes = getNeighbours(id);
         }
         
-        return evaluationNodes;
+        //store here possible needs to visit
+        List<MatrixNode> availableNodes = new ArrayList(); 
+
+        //scan nodes
+        for(long n : nodes){
+
+            //if unvisited
+            if(!visited.containsKey(n)){
+
+                //get distance
+                int distance = (Integer) targets.get(n);
+                //add to availableNodes
+                availableNodes.add(new MatrixNode(n, distance));
+
+            }
+
+        }
+        
+        return availableNodes;
 
     }   
 
