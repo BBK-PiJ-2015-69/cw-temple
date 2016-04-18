@@ -141,6 +141,24 @@ public class Explorer {
 
         //use dijkstra's algorithm to find the shortest path between the currentLocation and the exit
         List<Long> dijkstrasPath = matrix.getDijkstrasPath(currentLocation, dungeonExit);
+        
+        //consider the options returned for Gideon by dijkstras algorithm
+        for(Long gideonsOption : dijkstrasPath){
+
+            //if there is an option for Gideon, and it is not where he currently stands
+            if(gideonsOption != null && !gideonsOption.equals((Long) currentLocation)){
+
+                //then move Gideon to that option
+                state.moveTo( (Node) unvisitedEscapeNodes.get(gideonsOption) );
+                
+                //note to the matrix as visited the new tile that Gideon has progressed to
+                matrix.addVisit(currentLocation);
+                //update the record of currentLocation to reflect Gideon's new position
+                currentLocation = state.getCurrentNode().getId();
+
+            }
+
+        }
 
     }
 }
