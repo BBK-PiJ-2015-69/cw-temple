@@ -83,6 +83,9 @@ public class Matrix{
     public Set<Long> getNeighbours(long currentLocation){
         
         Set<Long> neighboursData = (Set<Long>) this.unvisited.keySet();
+        if(neighboursData == null){
+            throw new IllegalArgumentException("Error: Sorry but no unvisited neighbours; no progress can be made.");
+        }
         
         for(long locationData : (Set<Long>) unvisited.keySet()){
 
@@ -172,6 +175,11 @@ public class Matrix{
 
     public List<Long> getEvaluationNode(long id, boolean neighboursExist){
         
+        //check if unvisited has the id - if not there throw error
+        if(!unvisited.containsKey(id)){
+            throw new IllegalArgumentException("Error: sorry but this ID (" + id + ") is not recognised; no progress can be made."); 
+        }
+
         //store here the nodes
         Set<Long> nodes;
 
