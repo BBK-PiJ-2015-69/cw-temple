@@ -68,6 +68,9 @@ public class Explorer {
         //keep this looping until distance is zero, i.e. reach the Orb
         }while(state.getDistanceToTarget() != 0);
 
+        //we call the nearest nodes, neighbours, to the current location, for evaluation
+        evaluationNodes = matrix.getEvaluationNode(currentLocation, true);
+
     }
 
     /**

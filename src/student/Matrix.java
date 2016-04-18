@@ -38,4 +38,10 @@ public class Matrix{
 
     }
 
+ 	public List<Long> getEvaluationNode(long id, boolean neighboursExist){
+        
+        return evaluationNodes;
+
+    }   
+
 }
