@@ -8,12 +8,4 @@ Breadth First Search would mean expand this root node, by looking at each of its
 
 DFS and BFS use a queue data structure which is a 'First in, First Out' or FIFO data structure. This queue stores all the nodes that we have to explore and each time a node is explored it is added to our set of visited nodes.
 
-We approach the tiles as a Linked List, with the root node being the starting tile (staircase):
-Add Node 1 to the stack 
-If Node 1 isn't the goal node then add Node 2 to the stack
-Check if Node 2 is the goal node and if not add Node 4 to the stack.
-If Node 4 isn't the goal node then add Node 8 to the stack. 
-If Node 8 isn't the goal node then go to the nearest ancestor with unexplored children.
-This happens to be Node 4, so we add Node 9 to the stack and check that.
-If this isn't the goal node then we travel to Node 2 and explore it's unexplored children, Node 5.
-and so on...
+The question implies trying other methods. I believe we should use Dijkstra's algorithm to find the shortest path. Dijkstra's being more or less, BFS with a Priority Queue. When Dijkstra algorithm is run on unweighted graph, at any time, the Priority Queue contains at most two distinct (distance) values. Therefore, a FIFO queue of BFS suffices.
