@@ -6,11 +6,16 @@ public class Matrix{
 
     private Map unvisited;
     private Map visited;
+    private Map targets;
+    private Map edgeCosts;
 
     public Matrix(){
 
         unvisited = new HashMap(999);
         visited = new HashMap(999);
+        targets = new HashMap(MATRIX_HASHES_INIT);
+        edgeCosts = new HashMap(MATRIX_HASHES_INIT);
+        //gold??
 
     }
 
