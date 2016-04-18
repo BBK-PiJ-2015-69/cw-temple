@@ -55,6 +55,19 @@ public class Matrix{
 
     }
 
+    public void addGold(long position, int gold){
+        //if there is gold
+        if (gold >= 1){
+            //store details
+            this.gold.put(position, gold);
+        }
+    }
+
+    public boolean queryGold(long node){
+        //return gold details if it exists
+        return gold.containsKey(node);
+    }
+
  	public List<Long> getEvaluationNode(long id, boolean neighboursExist){
         
         //store here the nodes
