@@ -148,7 +148,7 @@ public class Matrix{
 
             if (position == (Long) gideonsMove){
                 
-                List<Long> dijkstrasWorkins = new ArrayList();
+                List<Long> dijkstrasWorkings = new ArrayList();
                 Long workings = gideonsMove;
                 
                 do{
@@ -158,7 +158,7 @@ public class Matrix{
                 
                 dijkstrasWorkings.add(workings);
                 
-                for(int i = dijkstrasWorkings.size()-1; i<=0; i--){
+                for(int i = dijkstrasWorkings.size()-1; i>=0; i--){
                     dijkstrasPath.add(dijkstrasWorkings.get(i));
                 }
 
