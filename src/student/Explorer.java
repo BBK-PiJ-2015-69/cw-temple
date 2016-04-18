@@ -4,6 +4,7 @@ import game.EscapeState;
 import game.ExplorationState;
 
 public class Explorer {
+    final int MATRIX_HASHES_INIT = 5000;
 
     /**
      * Explore the cavern, trying to find the orb in as few steps as possible.
@@ -167,7 +168,7 @@ public class Explorer {
         Collection<Node> vertices = state.getVertices(); 
         
         //unvisitedEscapeNodes lists the unvisited nodes
-        Map unvisitedEscapeNodes = new HashMap(999);
+        Map unvisitedEscapeNodes = new HashMap(MATRIX_HASHES_INIT);
 
         //scan the vertices
         for(Node v : vertices){
