@@ -14,5 +14,21 @@ public class Matrix{
 
     }
 
+     public void addEdge(long alpha, long beta){
+        
+        if(!unvisited.containsKey(alpha)){
+            unvisited.put(alpha, new HashSet<Long>());
+        }
+        Set alphaEdges = (Set) unvisited.get(alpha);
+        alphaEdges.add(beta);
+
+        if(!unvisited.containsKey(beta)){
+            unvisited.put(beta, new HashSet<Long>());
+        }
+        Set betaEdges = (Set) unvisited.get(beta);
+        betaEdges.add(alpha);
+	
+	}	
+
 
 }
