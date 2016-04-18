@@ -36,7 +36,15 @@ public class Explorer {
      * @param state the information available at the current state
      */
     public void explore(ExplorationState state) {
-        //TODO:
+        /* the National Debt of the UK is high, and George "Gideon" Osbourne's boss
+        Cameron is furious. George needs to find the Orb beneath the Palace of 
+        Westminster as quickly as possible so as to unlock hidden wealth */
+
+        //when the distance to target is not zero, i.e. we have not reached the orb
+        do{
+
+        //keep this looping until distance is zero, i.e. reach the Orb
+        }while(state.getDistanceToTarget() != 0);
 
 
     }
