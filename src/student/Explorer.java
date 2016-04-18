@@ -179,6 +179,9 @@ public class Explorer {
 
             //add to unvisitedEscapeNodes the vertex id and details
             unvisitedEscapeNodes.put(v.getId(), v);
+            
+            //Gideon needs to grab some gold to wipe the National Debt
+            matrix.addGold(v.getId(), v.getTile().getGold());
 
         }
 
@@ -198,6 +201,11 @@ public class Explorer {
 
                 //then move Gideon to that option
                 state.moveTo( (Node) unvisitedEscapeNodes.get(gideonsOption) );
+                
+                //if the tile has gold, Gideon must pick it up; the UK National Debt must be cleared
+                if(matrix.queryGold(gideonsOption)){
+                    state.pickUpGold();
+                }
                 
                 //note to the matrix as visited the new tile that Gideon has progressed to
                 matrix.addVisit(currentLocation);
