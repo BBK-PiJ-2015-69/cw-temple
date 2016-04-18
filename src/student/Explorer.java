@@ -80,6 +80,18 @@ public class Explorer {
                        //we then move Gideon to the evaluationNode
                        state.moveTo(evaluationNodes.get(0));
                     }
+            /* however, if there no evaluationNodes to consider, 
+            Gideon will have to backtrack and try another branch */
+            }else{ 
+            
+                /* we make a call to the matrix data, 
+                but as there are no nodes to evaluate, we have the second parameter set to false. 
+                we are requesting the keySet, the content of the maze
+                this being unvisited nodes, which are sorted into distance order
+                and therefore, we are provided with the nearest unvisited node
+                */
+                evaluationNodes = matrix.getEvaluationNode(currentLocation, false);
+
             }
 
         //keep this looping until distance is zero, i.e. reach the Orb
