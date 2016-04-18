@@ -44,7 +44,7 @@ public class Explorer {
         /* create a matrix to hold all nodes unvisited by Gideon
         this Matrix call will create hashmaps for:
         unvisited, visited, distances, and edge costs */
-        HashMap matrix = new HashMap();
+        Matrix matrix = new Matrix();
         
         //add start node and distance to matrix ?
 
