@@ -92,6 +92,10 @@ public class Explorer {
                 */
                 evaluationNodes = matrix.getEvaluationNode(currentLocation, false);
 
+                //counter set to zero
+                int n=0;
+                //add to gideonsMove first of evaluationNodes - index 0
+                long gideonsMove = evaluationNodes.get(n);
             }
 
         //keep this looping until distance is zero, i.e. reach the Orb
