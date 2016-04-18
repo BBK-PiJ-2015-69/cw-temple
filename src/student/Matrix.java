@@ -82,6 +82,18 @@ public class Matrix{
         
         return evaluationNodes;
 
+    }
+
+    public void addVisit(long id){
+
+        int i = 1;
+        
+        if(visited.containsKey(id)){
+            i += (int) visited.get(id); 
+        } 
+        
+        visited.put(id, i);
+
     }   
 
 }
