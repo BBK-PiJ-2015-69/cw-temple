@@ -71,6 +71,10 @@ public class Explorer {
         //we call the nearest nodes, neighbours, to the current location, for evaluation
         evaluationNodes = matrix.getEvaluationNode(currentLocation, true);
 
+        //if there are evalution node, we proceed to evaluate which is the best for Gideon to progress to
+        if(evaluationNodes != null && evaluationNodes.size() > 0){
+        }
+
     }
 
     /**
