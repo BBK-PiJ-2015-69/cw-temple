@@ -40,6 +40,18 @@ public class Matrix{
 
  	public List<Long> getEvaluationNode(long id, boolean neighboursExist){
         
+        //store here the nodes
+        Set<Long> evaluationNodes;
+
+        //if now neighbouring nodes
+        if(!neighboursExist){
+            //add all unvisited nodes
+            evalutionNodes = unvisited.keySet();
+        }else{
+            //add neighbouring nodes
+            evaluationNodes = getNeighbours(id);
+        }
+        
         return evaluationNodes;
 
     }   
