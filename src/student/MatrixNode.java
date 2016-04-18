@@ -10,4 +10,17 @@ public class MatrixNode implements Comparable<MatrixNode> {
         this.distance = distance;
     } 
 
+    public long getNode(){
+        return node;
+    }
+
+    public int getDistance(){
+        return distance;
+    }
+
+    @Override
+    public int compareTo(MatrixNode other) {
+        return Integer.compare(distance, other.distance);
+    }
+
 }
