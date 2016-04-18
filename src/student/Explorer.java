@@ -39,6 +39,11 @@ public class Explorer {
         /* the National Debt of the UK is high, and George "Gideon" Osbourne's boss
         Cameron is furious. George needs to find the Orb beneath the Palace of 
         Westminster as quickly as possible so as to unlock hidden wealth */
+        
+        /* create a matrix to hold all nodes unvisited by Gideon
+        this Matrix call will create hashmaps for:
+        unvisited, visited, distances, and edge costs */
+        HashMap matrix = new HashMap();
 
         //when the distance to target is not zero, i.e. we have not reached the orb
         do{
