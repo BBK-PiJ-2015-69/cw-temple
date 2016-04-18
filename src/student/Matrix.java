@@ -132,7 +132,11 @@ public class Matrix{
         distance.put(currentPosition, 0); 
 
         do{
-        	
+
+            //to represent infinity
+            int dijkstrasShortestDistance = 999; 
+            long position = -1;
+            
         }while(!edges.isEmpty());
 
         return dijkstrasPath;
