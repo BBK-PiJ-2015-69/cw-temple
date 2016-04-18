@@ -9,6 +9,7 @@ public class Matrix{
     private Map visited;
     private Map targets;
     private Map edgeCosts;
+    private Map gold;
 
     public Matrix(){
 
@@ -16,7 +17,7 @@ public class Matrix{
         visited = new HashMap(MATRIX_HASHES_INIT);
         targets = new HashMap(MATRIX_HASHES_INIT);
         edgeCosts = new HashMap(MATRIX_HASHES_INIT);
-        //gold??
+        gold = new HashMap(MATRIX_HASHES_INIT);
 
     }
 
