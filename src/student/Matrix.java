@@ -131,6 +131,10 @@ public class Matrix{
         
         distance.put(currentPosition, 0); 
 
+        do{
+        	
+        }while(!edges.isEmpty());
+
         return dijkstrasPath;
 
     } 
