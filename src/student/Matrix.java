@@ -115,7 +115,23 @@ public class Matrix{
     public List<Long> getDijkstrasPath(long currentPosition, long gideonsMove){
 
         List<Long> dijkstrasPath = new ArrayList();
-       return dijkstrasPath;
+        
+        for(long e : (Set<Long>) unvisited.keySet()){
+            edges.add(e);
+        }
+        
+        Map distance = new HashMap(MATRIX_HASHES_INIT);
+        Map previous = new HashMap(MATRIX_HASHES_INIT);
+        
+        for (Long e : edges){
+            //to represent infinity
+            distance.put(e, 999); 
+            previous.put(e, null);
+        }
+        
+        distance.put(currentPosition, 0); 
+
+        return dijkstrasPath;
 
     } 
 
