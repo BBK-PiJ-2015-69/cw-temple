@@ -108,6 +108,12 @@ public class Explorer {
      * @param state the information available at the current state
      */
     public void escape(EscapeState state) {
-        //TODO: Escape from the cavern before time runs out
+         /* George "Gideon" Osbourne, Chancellor of the Exchequer, has found the Orb.
+        Now he needs to get lots of gold to clear the National Debt and to cheer up
+        his boss Cameron, who is being questioned about offshore holdings */
+
+        //create a matrix to hold unvisited nodes
+        Matrix matrix = new Matrix();
+
     }
 }
