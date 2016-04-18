@@ -43,6 +43,9 @@ public class Explorer {
         //when the distance to target is not zero, i.e. we have not reached the orb
         do{
 
+            //currentLocation is the current position of Osbourne figure, the starting point
+            long currentLocation = state.getCurrentLocation();
+
         //keep this looping until distance is zero, i.e. reach the Orb
         }while(state.getDistanceToTarget() != 0);
 
