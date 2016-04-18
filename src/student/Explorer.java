@@ -50,6 +50,13 @@ public class Explorer {
         }while(state.getDistanceToTarget() != 0);
 
 
+        /* we get the neighbouring nodes of the starting point, where Gideon currently stands
+            and add each one to the matrix as an egde
+            and also add the distance */
+            for(NodeStatus neighbouringNode : state.getNeighbours() ){
+                matrix.addEdge(currentLocation, neighbouringNode.getId());
+            }
+
     }
 
     /**
