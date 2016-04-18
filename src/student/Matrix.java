@@ -112,4 +112,11 @@ public class Matrix{
 
     }   
 
+    public List<Long> getDijkstrasPath(long currentPosition, long gideonsMove){
+
+        List<Long> dijkstrasPath = new ArrayList();
+       return dijkstrasPath;
+
+    } 
+
 }

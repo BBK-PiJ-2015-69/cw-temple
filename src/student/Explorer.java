@@ -139,5 +139,8 @@ public class Explorer {
         //get the exit from this dungeon
         long dungeonExit = state.getExit().getId();
 
+        //use dijkstra's algorithm to find the shortest path between the currentLocation and the exit
+        List<Long> dijkstrasPath = matrix.getDijkstrasPath(currentLocation, dungeonExit);
+
     }
 }
