@@ -9,7 +9,7 @@ public class Matrix{
     private Map visited;
     private Map targets;
     private Map edgeCosts;
-    Map gold;
+    private Map gold;
 
     public Matrix(){
 
