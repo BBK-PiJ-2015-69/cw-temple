@@ -160,5 +160,8 @@ public class Explorer {
 
         }
 
+        //get Gideon out the room before the roof falls in
+        state.moveTo(state.getExit());
+
     }
 }
