@@ -63,24 +63,27 @@ public class Explorer {
                 matrix.addEdge(currentLocation, neighbouringNode.getId());
                 matrix.addDistance(neighbouringNode.getId(), neighbouringNode.getDistanceToTarget());
             }
-                Set<Long> neighboursList = matrix.getNeighbours(currentLocation);
+
+            /* we just added neighbours to the matrix
+            and now we make a call to the matrix of details of those neighbours */
+            Set<Long> neighboursList = matrix.getNeighbours(currentLocation);
+
+            //we call the nearest nodes, neighbours, to the current location, for evaluation
+            evaluationNodes = matrix.getEvaluationNode(currentLocation, true);
+
+            //if there are evalution node, we proceed to evaluate which is the best for Gideon to progress to
+            if(evaluationNodes != null && evaluationNodes.size() > 0){
+                    //we check if the evaluationNodes are in neighboursList
+                   if(neighboursList.contains(evaluationNodes.get(0))){
+                       //if they are, we update the matrix to say Gideon has visited the current tile he stands on
+                       matrix.addVisit(currentLocation);
+                       //we then move Gideon to the evaluationNode
+                       state.moveTo(evaluationNodes.get(0));
+                    }
+            }
 
         //keep this looping until distance is zero, i.e. reach the Orb
         }while(state.getDistanceToTarget() != 0);
-
-        //we call the nearest nodes, neighbours, to the current location, for evaluation
-        evaluationNodes = matrix.getEvaluationNode(currentLocation, true);
-
-        //if there are evalution node, we proceed to evaluate which is the best for Gideon to progress to
-        if(evaluationNodes != null && evaluationNodes.size() > 0){
-                //we check if the evaluationNodes are in neighboursList
-               if(neighboursList.contains(evaluationNodes.get(0))){
-                   //if they are, we update the matrix to say Gideon has visited the current tile he stands on
-                   matrix.addVisit(currentLocation);
-                   //we then move Gideon to the evaluationNode
-                   state.moveTo(evaluationNodes.get(0));
-                }
-        }
 
     }
 
