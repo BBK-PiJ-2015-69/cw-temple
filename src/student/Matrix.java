@@ -137,6 +137,15 @@ public class Matrix{
             int dijkstrasShortestDistance = 999; 
             long position = -1;
             
+            for(long e : edges){
+
+                if((int) distance.get(e) < dijkstrasShortestDistance){
+                    position = e;
+                    dijkstrasShortestDistance = (int) distance.get(e);   
+                }
+
+            }
+
         }while(!edges.isEmpty());
 
         return dijkstrasPath;
