@@ -1,11 +1,13 @@
 package student;
-
+import game.Edge;
 import game.EscapeState;
 import game.ExplorationState;
+import game.Node;
+import game.NodeStatus;
+import java.util.*;
 
 public class Explorer {
     final int MATRIX_HASHES_INIT = 5000;
-
     /**
      * Explore the cavern, trying to find the orb in as few steps as possible.
      * Once you find the orb, you must return from the function in order to pick
@@ -36,11 +38,12 @@ public class Explorer {
      *
      * @param state the information available at the current state
      */
+    
     public void explore(ExplorationState state) {
         /* the National Debt of the UK is high, and George "Gideon" Osbourne's boss
         Cameron is furious. George needs to find the Orb beneath the Palace of 
         Westminster as quickly as possible so as to unlock hidden wealth */
-        
+
         /* create a matrix to hold all nodes unvisited by Gideon
         this Matrix call will create hashmaps for:
         unvisited, visited, distances, and edge costs */
@@ -50,7 +53,7 @@ public class Explorer {
 
         //when the distance to target is not zero, i.e. we have not reached the orb
         do{
-
+            
             //currentLocation is the current position of Osbourne figure, the starting point
             long currentLocation = state.getCurrentLocation();
 
@@ -58,8 +61,8 @@ public class Explorer {
             List<Long> evaluationNodes = null;
 
             /* we get the neighbouring nodes of the starting point, where Gideon currently stands
-                and add each one to the matrix as an egde
-                and also add the distance */
+            and add each one to the matrix as an egde
+            and also add the distance */
             for(NodeStatus neighbouringNode : state.getNeighbours() ){
                 matrix.addEdge(currentLocation, neighbouringNode.getId());
                 matrix.addDistance(neighbouringNode.getId(), neighbouringNode.getDistanceToTarget());
@@ -71,19 +74,19 @@ public class Explorer {
 
             //we call the nearest nodes, neighbours, to the current location, for evaluation
             evaluationNodes = matrix.getEvaluationNode(currentLocation, true);
-
             //if there are evalution node, we proceed to evaluate which is the best for Gideon to progress to
             if(evaluationNodes != null && evaluationNodes.size() > 0){
-                    //we check if the evaluationNodes are in neighboursList
-                   if(neighboursList.contains(evaluationNodes.get(0))){
-                       //if they are, we update the matrix to say Gideon has visited the current tile he stands on
-                       matrix.addVisit(currentLocation);
-                       //we then move Gideon to the evaluationNode
-                       state.moveTo(evaluationNodes.get(0));
-                    }
+                //we check if the evaluationNodes are in neighboursList
+               if(neighboursList.contains(evaluationNodes.get(0))){
+                   //if they are, we update the matrix to say Gideon has visited the current tile he stands on
+                   matrix.addVisit(currentLocation);
+                   //we then move Gideon to the evaluationNode
+                   state.moveTo(evaluationNodes.get(0));
+                }
+
             /* however, if there no evaluationNodes to consider, 
             Gideon will have to backtrack and try another branch */
-            }else{ 
+             }else{ 
             
                 /* we make a call to the matrix data, 
                 but as there are no nodes to evaluate, we have the second parameter set to false. 
@@ -100,7 +103,8 @@ public class Explorer {
                 //while gideonsMove features evaluation node with shared egde with current location
                 // and not visited this evaluation node more than twice  
                 
-                while( (gideonsMove == currentLocation) && matrix.getVisits(gideonsMove)<=2){
+                 while(gideonsMove == currentLocation){
+                //while( (gideonsMove == currentLocation) && matrix.getVisits(gideonsMove)<=2){
                     //add to gideonsMove rest of evaluationNodes - incrementing by 1 from index 0
                     gideonsMove = evaluationNodes.get(n);
                     //increment
@@ -125,13 +129,12 @@ public class Explorer {
                         currentLocation = state.getCurrentLocation();
                     }
                 }
-                
             }
 
         //keep this looping until distance is zero, i.e. reach the Orb
         }while(state.getDistanceToTarget() != 0);
+    } 
 
-    }
 
     /**
      * Escape from the cavern before the ceiling collapses, trying to collect as much
@@ -157,7 +160,7 @@ public class Explorer {
      * @param state the information available at the current state
      */
     public void escape(EscapeState state) {
-         /* George "Gideon" Osbourne, Chancellor of the Exchequer, has found the Orb.
+        /* George "Gideon" Osbourne, Chancellor of the Exchequer, has found the Orb.
         Now he needs to get lots of gold to clear the National Debt and to cheer up
         his boss Cameron, who is being questioned about offshore holdings */
 
@@ -191,7 +194,7 @@ public class Explorer {
         //get the exit from this dungeon
         long dungeonExit = state.getExit().getId();
 
-        //use dijkstra's algorithm to find the shortest path between the currentLocation and the exit
+        //use dijkstra's algorithm to find the shortest path between the currentLocation and the exist
         List<Long> dijkstrasPath = matrix.getDijkstrasPath(currentLocation, dungeonExit);
         
         //consider the options returned for Gideon by dijkstras algorithm
@@ -219,6 +222,5 @@ public class Explorer {
 
         //get Gideon out the room before the roof falls in
         state.moveTo(state.getExit());
-
     }
 }

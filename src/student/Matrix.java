@@ -4,12 +4,12 @@ import java.lang.IllegalArgumentException;
 
 public class Matrix{
 
-	private final int MATRIX_HASHES_INIT = 999;
+    private final int MATRIX_HASHES_INIT = 999;
     private Map unvisited;
     private Map visited;
     private Map targets;
     private Map edgeCosts;
-    private Map gold;
+    Map gold;
 
     public Matrix(){
 
@@ -31,16 +31,16 @@ public class Matrix{
         
         visited.put(id, i);
 
-    }   
+    }
 
-    public void addDistance(long id, int targets){
+    public void addDistance(long id, int target){
         
         if(!targets.containsKey(id)){
-            targets.put(id, targets);
+            targets.put(id, target);
         }
 
     }
-
+ 
     public void addEdge(long alpha, long beta){
         
         if(!unvisited.containsKey(alpha)){
@@ -54,8 +54,8 @@ public class Matrix{
         }
         Set betaEdges = (Set) unvisited.get(beta);
         betaEdges.add(alpha);
-	
-	}	
+
+    }
 
     public void addEdgeCost(int distance, long alpha, long beta){
 
@@ -83,7 +83,7 @@ public class Matrix{
     public Set<Long> getNeighbours(long currentLocation){
         
         Set<Long> neighboursData = (Set<Long>) this.unvisited.keySet();
-
+        
         for(long locationData : (Set<Long>) unvisited.keySet()){
 
             if(currentLocation == locationData){
@@ -99,6 +99,7 @@ public class Matrix{
     public List<Long> getDijkstrasPath(long currentPosition, long gideonsMove){
 
         List<Long> dijkstrasPath = new ArrayList();
+        Set<Long> edges = new HashSet();
         
         for(long e : (Set<Long>) unvisited.keySet()){
             edges.add(e);
@@ -165,11 +166,11 @@ public class Matrix{
 
         }while(!edges.isEmpty());
 
-        return dijkstrasPath;
+       return dijkstrasPath;
 
-    }
+    } 
 
- 	public List<Long> getEvaluationNode(long id, boolean neighboursExist){
+    public List<Long> getEvaluationNode(long id, boolean neighboursExist){
         
         //store here the nodes
         Set<Long> nodes;
@@ -213,6 +214,6 @@ public class Matrix{
         
         return evaluationNodes;
 
-    } 
+    }   
 
 }
