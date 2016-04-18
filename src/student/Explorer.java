@@ -96,15 +96,21 @@ public class Explorer {
                 int n=0;
                 //add to gideonsMove first of evaluationNodes - index 0
                 long gideonsMove = evaluationNodes.get(n);
-                
                 //while gideonsMove features evaluation node with shared egde with current location
                 // and not visited this evaluation node more than twice  
-                 while(gideonsMove == currentLocation){
+                
+                while( (gideonsMove == currentLocation) && matrix.getVisits(gideonsMove)<=2){
                     //add to gideonsMove rest of evaluationNodes - incrementing by 1 from index 0
                     gideonsMove = evaluationNodes.get(n);
                     //increment
                     n++;
                 }
+
+                //use dijkstras algorithim to get the shortest path between the current location and gideonsMove
+                List<Long> dijkstrasPath = matrix.getDijkstrasPath(currentLocation, gideonsMove);
+                long dijkstrasPathPlus;
+
+                
             }
 
         //keep this looping until distance is zero, i.e. reach the Orb
