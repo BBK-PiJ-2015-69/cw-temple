@@ -121,5 +121,18 @@ public class Explorer {
         //unvisitedEscapeNodes lists the unvisited nodes
         Map unvisitedEscapeNodes = new HashMap(999);
 
+        //scan the vertices
+        for(Node v : vertices){
+
+            //scan for vertices/edges relating to current position of Gideon
+            for(Edge e: v.getExits()){
+                matrix.addEdgeCost(e.length(), e.getSource().getId(), e.getDest().getId());
+            }
+
+            //add to unvisitedEscapeNodes the vertex id and details
+            unvisitedEscapeNodes.put(v.getId(), v);
+
+        }
+
     }
 }

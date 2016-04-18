@@ -30,6 +30,16 @@ public class Matrix{
 	
 	}	
 
+    public void addEdgeCost(int distance, long alpha, long beta){
+
+       List<Long> alphaBetaCost = new ArrayList(); 
+       
+       edgeCosts.put(alphaBetaCost, distance);
+       
+       addEdge(alpha, beta);
+    
+    }
+
     public void addDistance(long id, int targets){
         
         if(!targets.containsKey(id)){
